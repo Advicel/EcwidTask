@@ -9,9 +9,12 @@
 <body>
     <div class="inputBlock">
         <p>Введите URL картинки или выберитие файл (Картинку или JSON)</p>
-        <input type="url" class = "fileUrl">
+        <form class="urlBlock">
+            <input type="url" class = "fileUrl" required>
+            <button class="buttonLoad" >скачать</button>
+        </form>
         <input type="file" class = "filePath">
-        <button class="buttonLoad" >скачать</button>
+        
     </div>
     <div class="gallery"></div>
     <div class="trash"></div>

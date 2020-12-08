@@ -1,12 +1,12 @@
 "use strict"
 const gallery = document.querySelector(".gallery");
-let images;
 let count = 0;
-
 document.addEventListener('drop',event=>event.preventDefault());
 document.addEventListener('dragover',event=>event.preventDefault());
 document.querySelector(".buttonLoad").addEventListener("click",buttonLoadClick);
 gallery.addEventListener("dragstart",event=>event.dataTransfer.setData('id',event.target.id))
+
+document.querySelector(".filePath").addEventListener("change", filePathChange)
 
 gallery.addEventListener('drop',event => {
     event.preventDefault();
@@ -18,8 +18,10 @@ gallery.addEventListener('drop',event => {
 })
 gallery.addEventListener('click',event=>{
     const id = event.target.id;
-    const img = document.getElementById(id);
-    img.classList.toggle("active");
+    if(id){
+        const img = document.getElementById(id);
+        img.classList.toggle("active");
+    }
 })
 
 document.querySelector(".trash").addEventListener('drop',event => {
@@ -27,6 +29,7 @@ document.querySelector(".trash").addEventListener('drop',event => {
     const img = document.getElementById(event.dataTransfer.getData("id"));
     gallery.removeChild(img);
 })
+
 document.querySelector(".trash").addEventListener('click',event => {
     document.querySelectorAll(".active").forEach(img=>{
         gallery.removeChild(img);
@@ -36,13 +39,21 @@ document.querySelector(".trash").addEventListener('click',event => {
 document.querySelector(".trash").addEventListener("mouseover",event => {
     event.target.classList.add("open");
 })
+
 document.querySelector(".trash").addEventListener("mouseleave",event => {
     event.target.classList.remove("open");
 })
 
 function buttonLoadClick(){
-    const filePath = document.querySelector(".filePath");
     const fileUrl = document.querySelector(".fileUrl");
+    if(document.querySelector(".fileUrl").value !==""){
+        const url = fileUrl.value;
+        addToGallery(url);
+    }
+    fileUrl.value = "";
+}
+function filePathChange(){
+    const filePath = document.querySelector(".filePath");
     if(filePath.value !==""){
         const file = filePath.files[0];
         if(file.type.endsWith("json")){        
@@ -56,11 +67,7 @@ function buttonLoadClick(){
             const url = URL.createObjectURL(file);
             addToGallery(url)
         }
-    } else if(document.querySelector(".fileUrl").value !==""){
-        const url = fileUrl.value;
-        addToGallery(url)
     }
-    fileUrl.value = "";
     filePath.value = "";
 }
 
@@ -75,6 +82,7 @@ function addToGallery(url){
     const image = document.createElement('img');
     image.src = url;
     image.id = count++;
-    gallery.appendChild(image);
-    images = document.querySelectorAll("img");
+    image.alt = "Проверьте путь к файлу, а меня удалите";
+    image.onerror=()=>alert("Указан несуществующий путь");
+    image.onload=()=>gallery.appendChild(image);
 }

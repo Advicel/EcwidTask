@@ -1,7 +1,7 @@
 *{
     padding: 0;
     margin: 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 body{
     margin: 0 auto;
@@ -28,7 +28,7 @@ body{
     display: block;
     width:100%;
     resize: vertical;
-    padding:15px;
+    padding: 0 15px;
     border-radius:15px;
     border:0;
     box-shadow:4px 4px 10px rgba(0,0,0,0.06);
@@ -57,12 +57,17 @@ body{
     flex-wrap: wrap;
     align-content: start;
 }
+.urlBlock{
+    display: flex;
+    width:100%;
+}
 .trash{
     cursor: pointer;
     position: sticky;
     bottom: 10px;
     width: 50px;
     height: 50px;
+    background-position: left;
     background-image: url(IMG_5415.png);
 }
 .open{
@@ -81,5 +86,5 @@ img{
     }
 }
 .active{
-    border: 2px solid red;
+    outline: 2px solid red;
 }
