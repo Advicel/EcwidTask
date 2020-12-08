@@ -46,7 +46,7 @@ document.querySelector(".trash").addEventListener("mouseleave",event => {
 
 function buttonLoadClick(){
     const fileUrl = document.querySelector(".fileUrl");
-    if(document.querySelector(".fileUrl").value !==""){
+    if(fileUrl.value !==""){
         const url = fileUrl.value;
         addToGallery(url);
     }
@@ -82,7 +82,6 @@ function addToGallery(url){
     const image = document.createElement('img');
     image.src = url;
     image.id = count++;
-    image.alt = "Проверьте путь к файлу, а меня удалите";
     image.onerror=()=>alert("Указан несуществующий путь");
     image.onload=()=>gallery.appendChild(image);
 }
