@@ -58,6 +58,7 @@ body{
     align-content: start;
 }
 .trash{
+    cursor: pointer;
     position: sticky;
     bottom: 10px;
     width: 50px;
@@ -74,6 +75,15 @@ img{
     max-height: 150px;
     max-width: 100%;
     cursor: pointer;
+}
+@media (max-width:500px){
+    img{
+        margin-bottom: 3px;
+        display: block;
+        max-height: 100px;
+        max-width: 100%;
+        cursor: pointer;
+    }
 }
 .active{
     border: 2px solid red;
