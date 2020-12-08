@@ -1,11 +1,47 @@
-html{
-    background-color: pink;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
 }
 body{
     margin: 0 auto;
     min-width: 320px;
     max-width: 860px;
     background-color: greenyellow;
+}
+.inputBlock{
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+.filePath{
+    margin: 5px;
+    display: block;
+    outline: 1px solid black;
+    
+}
+.fileUrl{
+    margin: 5px;
+    display: block;
+    width:100%;
+    resize: vertical;
+    padding:15px;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+}
+.buttonLoad{
+    margin: 5px;
+    width: 130px;
+    padding:10px;
+    border:none;
+    background-color:#3F51B5;
+    color:#fff;
+    font-weight:600;
+    border-radius:5px;
 }
 .gallery{
     margin: 0 auto;
@@ -15,23 +51,30 @@ body{
     padding:5px;
     color: black;
     border: 2px solid black;
-    /*justify-content: center;
-    align-items: center;*/
-    justify-content: space-between;
+    justify-content: space-evenly;
     display: flex;
     cursor: default;
     flex-wrap: wrap;
     align-content: start;
-    flex-grow: 1;
 }
 .trash{
+    position: sticky;
+    bottom: 10px;
     width: 50px;
-    background-color: red;
+    width: 50px;
     height: 50px;
+    background-image: url(IMG_5415.png);
+}
+.open{
+    background-image: url(IMG_5416.png);
 }
 img{
     margin-bottom: 3px;
     display: block;
     max-height: 150px;
     max-width: 100%;
+    cursor: pointer;
+}
+.active{
+    border: 2px solid red;
 }

@@ -7,10 +7,15 @@
     <title>Gallery</title>
 </head>
 <body>
-    <input type="file" class = "filePath">
-    <button class="buttonLoad" >скачать</button>
+    <div class="inputBlock">
+        <p>Введите URL картинки или выберитие файл (Картинку или JSON)</p>
+        <input type="url" class = "fileUrl">
+        <input type="file" class = "filePath">
+        <button class="buttonLoad" >скачать</button>
+    </div>
+    
     <div class="gallery"></div>
-    <div class="trash">trash</div>
+    <div class="trash"></div>
     <script src = "script.js" ></script>
 </body>
 </html>
