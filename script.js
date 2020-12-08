@@ -33,10 +33,10 @@ document.querySelector(".trash").addEventListener('click',event => {
     })
 })
 
-document.querySelector(".trash").addEventListener("dragover",event => {
+document.querySelector(".trash").addEventListener("mouseover",event => {
     event.target.classList.add("open");
 })
-document.querySelector(".trash").addEventListener("dragleave",event => {
+document.querySelector(".trash").addEventListener("mouseleave",event => {
     event.target.classList.remove("open");
 })
 
